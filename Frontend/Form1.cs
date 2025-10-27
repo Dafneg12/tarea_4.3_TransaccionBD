@@ -67,7 +67,7 @@ namespace tarea_4._3_TransaccionBD
                 MessageBox.Show($"Ocurrió un error al intentar iniciar sesión:\n{ex.Message}",
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            txtCodigoProduct.Clear();
         }
 
         private void Form1_Load(object sender, EventArgs e)
