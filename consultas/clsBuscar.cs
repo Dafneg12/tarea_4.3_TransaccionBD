@@ -11,7 +11,7 @@ namespace tarea_4._3_TransaccionBD.consultas
 {
     public class clsBuscar
     {
-        public DataTable ObtenerProductos()
+        public DataTable ObtenerProductos(string codigo)
         {
             DataTable tabla = new DataTable();
 
@@ -19,10 +19,12 @@ namespace tarea_4._3_TransaccionBD.consultas
             {
                 cn.Open();
 
-                string strSQL = "select * from product";
+                 string strSQL = "select * from product where codigo = @codigo";
 
                 using (MySqlCommand comando = new MySqlCommand(strSQL, cn))
                 {
+                    comando.Parameters.AddWithValue("@codigo", codigo);
+
                     using (MySqlDataAdapter da = new MySqlDataAdapter(comando))
                     {
                         da.Fill(tabla);
@@ -37,7 +39,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         {
             /// CREAR LA CONEXIÓN, CONFIGURAR Y ABRIRLA
             MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=Dagu12oa";
+            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=31tv9";
             cn.Open();
 
             /// CONSULTA
@@ -45,6 +47,7 @@ namespace tarea_4._3_TransaccionBD.consultas
 
             MySqlCommand comando = new MySqlCommand(strSQL, cn);
             comando.Parameters.AddWithValue("@codigo", producto.Codigo);
+           
 
             int resultado = Convert.ToInt32(comando.ExecuteScalar());
 
@@ -62,6 +65,36 @@ namespace tarea_4._3_TransaccionBD.consultas
             else
             {
                 return 0;
+            }
+        }
+
+        public bool DescontinuarProducto(clsProducts producto)
+        {
+            MySqlConnection cn = new MySqlConnection();
+            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=31tv9";
+            cn.Open();
+            MySqlTransaction trans = cn.BeginTransaction();
+            try
+            {  
+                 string strSQL = "UPDATE product SET estado = 'Inactivo' WHERE codigo = @codigo";
+                 MySqlCommand comando = new MySqlCommand(strSQL, cn);
+                 comando.Parameters.AddWithValue("codigo", producto.Codigo);
+                 comando.ExecuteNonQuery();
+                 comando.Dispose();
+                
+                 trans.Commit();
+                 return true;
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                trans.Dispose();
+                cn.Close();
+                cn.Dispose();
             }
         }
     }
