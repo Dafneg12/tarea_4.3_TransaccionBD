@@ -38,11 +38,10 @@
             // dgvProducts
             // 
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Location = new Point(32, 82);
-            dgvProducts.Margin = new Padding(3, 2, 3, 2);
+            dgvProducts.Location = new Point(37, 109);
             dgvProducts.Name = "dgvProducts";
             dgvProducts.RowHeadersWidth = 51;
-            dgvProducts.Size = new Size(867, 308);
+            dgvProducts.Size = new Size(991, 411);
             dgvProducts.TabIndex = 0;
             // 
             // btnBuscar
@@ -50,24 +49,21 @@
             btnBuscar.BackColor = Color.FromArgb(167, 245, 149);
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Calibri", 11F);
-            btnBuscar.Location = new Point(400, 34);
-            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Location = new Point(457, 45);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(73, 31);
+            btnBuscar.Size = new Size(83, 41);
             btnBuscar.TabIndex = 1;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnDescontinuar
             // 
             btnDescontinuar.BackColor = Color.FromArgb(167, 245, 149);
             btnDescontinuar.FlatStyle = FlatStyle.Flat;
             btnDescontinuar.Font = new Font("Calibri", 11F);
-            btnDescontinuar.Location = new Point(788, 38);
-            btnDescontinuar.Margin = new Padding(3, 2, 3, 2);
+            btnDescontinuar.Location = new Point(901, 51);
             btnDescontinuar.Name = "btnDescontinuar";
-            btnDescontinuar.Size = new Size(111, 28);
+            btnDescontinuar.Size = new Size(127, 37);
             btnDescontinuar.TabIndex = 2;
             btnDescontinuar.Text = "Descontinuar";
             btnDescontinuar.UseVisualStyleBackColor = false;
@@ -75,28 +71,25 @@
             // 
             // txtCodigoProduct
             // 
-            txtCodigoProduct.Location = new Point(32, 34);
-            txtCodigoProduct.Margin = new Padding(3, 2, 3, 2);
+            txtCodigoProduct.Location = new Point(37, 45);
             txtCodigoProduct.Multiline = true;
             txtCodigoProduct.Name = "txtCodigoProduct";
             txtCodigoProduct.PlaceholderText = "Código";
-            txtCodigoProduct.Size = new Size(355, 32);
+            txtCodigoProduct.Size = new Size(405, 41);
             txtCodigoProduct.TabIndex = 3;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(216, 245, 210);
-            ClientSize = new Size(931, 418);
+            ClientSize = new Size(1064, 557);
             Controls.Add(txtCodigoProduct);
             Controls.Add(btnDescontinuar);
             Controls.Add(btnBuscar);
             Controls.Add(dgvProducts);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ResumeLayout(false);
             PerformLayout();

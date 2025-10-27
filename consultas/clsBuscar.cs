@@ -15,7 +15,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         {
             DataTable tabla = new DataTable();
 
-            using (MySqlConnection cn = new MySqlConnection("server=localhost; database=products; user=root; pwd=root"))
+            using (MySqlConnection cn = new MySqlConnection("server=localhost; database=products; user=root; pwd=Dagu12oa"))
             {
                 cn.Open();
 
@@ -39,7 +39,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         {
             /// CREAR LA CONEXIÓN, CONFIGURAR Y ABRIRLA
             MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=root";
+            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=Dagu12oa";
             cn.Open();
 
             /// CONSULTA
@@ -68,20 +68,28 @@ namespace tarea_4._3_TransaccionBD.consultas
             }
         }
 
-        public bool DescontinuarProducto(clsProducts producto)
+        public bool DescontinuarProducto(List<clsProducts> productos)
         {
+            if (productos.Count == 0)
+            {
+                return false;
+            }
+
             MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=root";
+            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=Dagu12oa";
             cn.Open();
             MySqlTransaction trans = cn.BeginTransaction();
+
             try
-            {  
-                 string strSQL = "UPDATE product SET estado = 'Inactivo' WHERE codigo = @codigo";
-                 MySqlCommand comando = new MySqlCommand(strSQL, cn);
-                 comando.Parameters.AddWithValue("codigo", producto.Codigo);
-                 comando.ExecuteNonQuery();
-                 comando.Dispose();
-                
+            {
+                foreach (clsProducts producto in productos) {
+                    string strSQL = "UPDATE product SET estado = 'Inactivo' WHERE codigo = @codigo";
+                    MySqlCommand comando = new MySqlCommand(strSQL, cn);
+                    comando.Parameters.AddWithValue("codigo", producto.Codigo);
+                    comando.ExecuteNonQuery();
+                    comando.Dispose();
+                }
+
                  trans.Commit();
                  return true;
             }
