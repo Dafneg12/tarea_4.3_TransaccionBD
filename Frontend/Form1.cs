@@ -32,7 +32,7 @@ namespace tarea_4._3_TransaccionBD
 
                     MessageBox.Show("Producto encontrado", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clsBuscar seleccionar = new clsBuscar();
-                    DataTable datos = seleccionar.ObtenerProductos(producto.Codigo);
+                    DataTable datos = seleccionar.ObtenerProductos(producto);
                     
                     listaProductos.Add(producto);
                     //dgvProducts.DataSource = null;
@@ -83,28 +83,39 @@ namespace tarea_4._3_TransaccionBD
 
         private void btnDescontinuar_Click(object sender, EventArgs e)
         {
-            if(dgvProducts.Rows.Count > 0)
-            {
-                DialogResult resultado = MessageBox.Show( "¿Está seguro que quiere descontinuar el producto?",
-                "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            clsProducts producto = new clsProducts();
+            producto.Codigo = dgvProducts.SelectedRows[0].Cells["codigo"].Value.ToString();
 
-                if (resultado == DialogResult.Yes) {
-                    try
+            try
+            {
+                if (dgvProducts.Rows.Count > 0)
+                {
+                    DialogResult resultado = MessageBox.Show("¿Está seguro que quiere descontinuar el producto?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (resultado == DialogResult.Yes)
                     {
-                       clsProducts producto = new clsProducts();
-                       clsBuscar desc = new clsBuscar();
-                        if (desc.DescontinuarProducto(producto))
+                        try
                         {
-                            dgvProducts.DataSource = null;
-                            MessageBox.Show("Productos descontinuados correctamente.");
+                            clsBuscar desc = new clsBuscar();
+                            if (desc.DescontinuarProducto(producto))
+                            {
+                                dgvProducts.DataSource = null;
+                                MessageBox.Show("Productos descontinuados correctamente.");
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al descontinuar productos: " + ex.Message);
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al descontinuar productos: " + ex.Message);
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+
+            }   
             
         }
     }

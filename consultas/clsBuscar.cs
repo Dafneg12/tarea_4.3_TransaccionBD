@@ -11,11 +11,11 @@ namespace tarea_4._3_TransaccionBD.consultas
 {
     public class clsBuscar
     {
-        public DataTable ObtenerProductos(string codigo)
+        public DataTable ObtenerProductos(clsProducts producto)
         {
             DataTable tabla = new DataTable();
 
-            using (MySqlConnection cn = new MySqlConnection("server=localhost; database=products; user=root; pwd=31tv9"))
+            using (MySqlConnection cn = new MySqlConnection("server=localhost; database=products; user=root; pwd=Dagu12oa"))
             {
                 cn.Open();
 
@@ -23,7 +23,7 @@ namespace tarea_4._3_TransaccionBD.consultas
 
                 using (MySqlCommand comando = new MySqlCommand(strSQL, cn))
                 {
-                    comando.Parameters.AddWithValue("@codigo", codigo);
+                    comando.Parameters.AddWithValue("@codigo", producto.Codigo);
 
                     using (MySqlDataAdapter da = new MySqlDataAdapter(comando))
                     {
@@ -39,7 +39,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         {
             /// CREAR LA CONEXIÓN, CONFIGURAR Y ABRIRLA
             MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=31tv9";
+            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=Dagu12oa";
             cn.Open();
 
             /// CONSULTA
@@ -71,7 +71,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         public bool DescontinuarProducto(clsProducts producto)
         {
             MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=31tv9";
+            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=Dagu12oa";
             cn.Open();
             MySqlTransaction trans = cn.BeginTransaction();
             try
