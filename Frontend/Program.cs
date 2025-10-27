@@ -1,4 +1,4 @@
-namespace tarea_4._3_TransaccionBD
+namespace tarea_4._3_TransaccionBD.Frontend
 {
     internal static class Program
     {
