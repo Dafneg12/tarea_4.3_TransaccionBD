@@ -15,7 +15,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         {
             DataTable tabla = new DataTable();
 
-            using (MySqlConnection cn = new MySqlConnection("server=localhost; database=products; user=root; pwd=Dagu12oa"))
+            using (MySqlConnection cn = new MySqlConnection("server=localhost; database=products; user=root; pwd=31tv9"))
             {
                 cn.Open();
 
