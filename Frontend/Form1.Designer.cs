@@ -28,33 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgvProducts = new DataGridView();
+            btnBuscar = new Button();
+            btnDescontinuar = new Button();
+            txtCodigoProduct = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvProducts
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(58, 104);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(634, 252);
-            dataGridView1.TabIndex = 0;
+            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProducts.Location = new Point(37, 109);
+            dgvProducts.Name = "dgvProducts";
+            dgvProducts.RowHeadersWidth = 51;
+            dgvProducts.Size = new Size(991, 411);
+            dgvProducts.TabIndex = 0;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = Color.FromArgb(167, 245, 149);
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Font = new Font("Calibri", 11F);
+            btnBuscar.Location = new Point(457, 46);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(83, 41);
+            btnBuscar.TabIndex = 1;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // btnDescontinuar
+            // 
+            btnDescontinuar.BackColor = Color.FromArgb(167, 245, 149);
+            btnDescontinuar.FlatStyle = FlatStyle.Flat;
+            btnDescontinuar.Font = new Font("Calibri", 11F);
+            btnDescontinuar.Location = new Point(901, 50);
+            btnDescontinuar.Name = "btnDescontinuar";
+            btnDescontinuar.Size = new Size(127, 37);
+            btnDescontinuar.TabIndex = 2;
+            btnDescontinuar.Text = "Descontinuar";
+            btnDescontinuar.UseVisualStyleBackColor = false;
+            // 
+            // txtCodigoProduct
+            // 
+            txtCodigoProduct.Location = new Point(37, 46);
+            txtCodigoProduct.Multiline = true;
+            txtCodigoProduct.Name = "txtCodigoProduct";
+            txtCodigoProduct.PlaceholderText = "Código";
+            txtCodigoProduct.Size = new Size(405, 41);
+            txtCodigoProduct.TabIndex = 3;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            BackColor = Color.FromArgb(216, 245, 210);
+            ClientSize = new Size(1064, 557);
+            Controls.Add(txtCodigoProduct);
+            Controls.Add(btnDescontinuar);
+            Controls.Add(btnBuscar);
+            Controls.Add(dgvProducts);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvProducts;
+        private Button btnBuscar;
+        private Button btnDescontinuar;
+        private TextBox txtCodigoProduct;
     }
 }
