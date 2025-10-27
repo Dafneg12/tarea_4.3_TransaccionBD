@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             dgvProducts = new DataGridView();
-            btnBuscar = new Button();
             btnDescontinuar = new Button();
             txtCodigoProduct = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -43,18 +42,6 @@
             dgvProducts.RowHeadersWidth = 51;
             dgvProducts.Size = new Size(991, 411);
             dgvProducts.TabIndex = 0;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.BackColor = Color.FromArgb(167, 245, 149);
-            btnBuscar.FlatStyle = FlatStyle.Flat;
-            btnBuscar.Font = new Font("Calibri", 11F);
-            btnBuscar.Location = new Point(457, 45);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(83, 41);
-            btnBuscar.TabIndex = 1;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
             // 
             // btnDescontinuar
             // 
@@ -86,7 +73,6 @@
             ClientSize = new Size(1064, 557);
             Controls.Add(txtCodigoProduct);
             Controls.Add(btnDescontinuar);
-            Controls.Add(btnBuscar);
             Controls.Add(dgvProducts);
             Name = "Form1";
             Text = "Form1";
@@ -98,7 +84,6 @@
         #endregion
 
         private DataGridView dgvProducts;
-        private Button btnBuscar;
         private Button btnDescontinuar;
         private TextBox txtCodigoProduct;
     }
