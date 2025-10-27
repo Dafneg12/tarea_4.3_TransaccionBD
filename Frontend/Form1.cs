@@ -35,8 +35,26 @@ namespace tarea_4._3_TransaccionBD
                     DataTable datos = seleccionar.ObtenerProductos(producto.Codigo);
                     
                     listaProductos.Add(producto);
-                    dgvProducts.DataSource = null;
-                    dgvProducts.DataSource = datos;
+                    //dgvProducts.DataSource = null;
+                   
+                   
+
+                    if (dgvProducts.DataSource == null)
+                    {
+                        dgvProducts.DataSource = datos;
+                    }
+                    else
+                    {
+                        // Si ya tiene un DataTable, agregamos las nuevas filas
+                        DataTable tablaExistente = (DataTable)dgvProducts.DataSource;
+
+                        foreach (DataRow fila in datos.Rows)
+                        {
+                            tablaExistente.ImportRow(fila);
+                        }
+
+                        dgvProducts.DataSource = tablaExistente;
+                    }
 
                 }
                 else
