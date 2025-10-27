@@ -15,7 +15,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         {
             DataTable tabla = new DataTable();
 
-            using (MySqlConnection cn = new MySqlConnection("server=localhost; database=products; user=root; pwd=Dagu12oa"))
+            using (MySqlConnection cn = new MySqlConnection("server=localhost; database=products; user=root; pwd=root"))
             {
                 cn.Open();
 
@@ -39,7 +39,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         {
             /// CREAR LA CONEXIÓN, CONFIGURAR Y ABRIRLA
             MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=Dagu12oa";
+            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=root";
             cn.Open();
 
             /// CONSULTA
@@ -71,7 +71,7 @@ namespace tarea_4._3_TransaccionBD.consultas
         public bool DescontinuarProducto(clsProducts producto)
         {
             MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=Dagu12oa";
+            cn.ConnectionString = "server=localhost; database=products; user=root; pwd=root";
             cn.Open();
             MySqlTransaction trans = cn.BeginTransaction();
             try
